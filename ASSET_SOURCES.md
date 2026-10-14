@@ -34,3 +34,5 @@ Manrope variable font is included at `public/assets/fonts/manrope-variable.ttf`.
 ## Integrity
 
 `public/assets/manifest.json` includes exact download URLs, provenance and SHA-256 hashes for the 10 brand assets.
+
+SEND brandmark: official SEND brand asset library https://info.send.it/docs/miscellaneous/brand-links-assets ; downloaded https://info.send.it/img/SendBrandmark.svg . Used to identify the historical report, no endorsement claimed. send.app blocked direct asset retrieval.
