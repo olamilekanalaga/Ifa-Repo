@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {breshnaHistorical as c} from '../src/breshnaHistorical.js';
 import {evaluateFixedReferral,evaluateCampaign} from '../src/campaignRuleEngine.js';
-import {unavailable,specificationFromForm,historicalPage} from '../src/historicalStudio.js';
+import {unavailable,historicalPage} from '../src/historicalStudio.js';
 import {campaigns} from '../src/data.js';
 import {ranking} from '../src/engine.js';
 import {initialState,loadState,persistState} from '../src/store.js';
@@ -19,6 +19,5 @@ for(const [name,events,expected] of [
  ['foreign campaign does not qualify',[signup,{...game,campaignId:'foreign'}],0],
  ['conflicting duplicate IDs invalidate evidence',[signup,game,{...game,referrerId:'other'}],0]
 ])test(name,()=>{const result=evaluateFixedReferral(c,events);assert.equal(result.totalEstimatedUSD,expected);assert.equal(result.isPayoutAuthorization,false)});
-test('historical unknowns remain null and display Not available',()=>{for(const metric of Object.values(c.metrics))assert.equal(metric,null);assert.equal(c.measurement.attributionWindowDays,null);assert.equal(unavailable(null),'Not available');assert.match(historicalPage(initialState()),/Creators|creator accounts/);assert.match(historicalPage(initialState()),/Operator recollections/)});
+test('report distinguishes campaign budget and game-creating users from creators',()=>{assert.equal(c.report.budgetUSD,100000);assert.equal(c.report.gameCreatingUsers,100000);assert.equal(c.report.participatingCreators,null);assert.equal(c.metrics.paidRewardsUSD,null);assert.match(historicalPage(),/not participating creators/);assert.doesNotMatch(historicalPage(),/historical-spec-form/)});
 test('model dispatcher preserves synthetic points pools and rejects ranking historical cases',()=>{assert.equal(campaigns.length,10);for(const campaign of campaigns){assert.equal(campaign.campaignModel,'points_pool');const rows=evaluateCampaign(campaign,[],{pointsPool:campaign=>ranking(campaign,initialState())});assert.equal(Math.round(rows.reduce((n,r)=>n+r.reward,0)*100),campaign.pool*100)}assert.throws(()=>ranking(c,initialState()),/Points pool/)});
-test('human review, evidence, nullable fields and persisted versions',()=>{const d=new FormData();for(const [key,value] of Object.entries({brief:'Referral campaign',objective:'Create games',amount:'1',reviewed:'on',adminEvidence:'Operator recollection, unverified'}))d.set(key,value);const s=initialState(),one=specificationFromForm(d,s);assert.equal(one.measurement.attributionWindowDays,null);assert.equal(one.specVersion,1);s.historicalSpecs=[one];const two=specificationFromForm(d,s);s.historicalSpecs.push(two);assert.equal(two.specVersion,2);assert.equal(one.reward.amount,1);const storage={setItem(k,v){this.value=v},getItem(){return this.value}};persistState(storage,s);assert.equal(loadState(storage).historicalSpecs.length,2);d.delete('reviewed');assert.throws(()=>specificationFromForm(d,s),/human review/)});

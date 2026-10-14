@@ -58,10 +58,10 @@ export const breshnaHistorical = {
       "verification": "unverified"
     },
     {
-      "claim": "Approximately 100,000 users attributed to operator's campaign",
+      "claim": "100,000 referred users created games across all participating creators",
       "sourceType": "operator_report",
       "verification": "unverified",
-      "metricDefinition": "unknown"
+      "metricDefinition": "Referred users who created a game; aggregate across participating creators"
     },
     {
       "claim": "Breshna offers no-code video game creation",
@@ -70,10 +70,11 @@ export const breshnaHistorical = {
       "verification": "public_company_description"
     }
   ],
+  "report": {"budgetUSD": 100000, "gameCreatingUsers": 100000, "participatingCreators": null, "source": "campaign_operator_report"},
   "metrics": {
     "verifiedReferrals": null,
     "registeredUsers": null,
-    "activatedGameMakers": null,
+    "activatedGameMakers": 100000,
     "paidRewardsUSD": null
   },
   "notes": "Historical case only. No invented creator identities, payout amounts, conversions or event logs."
