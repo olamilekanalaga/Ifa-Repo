@@ -9,7 +9,7 @@ export const creators = Array.from({length:1000},(_,i)=>{
   topics[TOPICS[a]]=70+Math.floor(r()*25); topics[TOPICS[b]]=30+Math.floor(r()*28); topics[TOPICS[c]]=12+Math.floor(r()*12);
   const name=i===0?'⭕️La_Crrypt💰₿':`${first[i%32]} ${last[Math.floor(i/32)%32]}`;
   if(i===0) Object.assign(topics,{Wallets:91,Payments:82,Trading:44,Lending:23,NFTs:10,Gaming:7,Music:4,Social:18});
-  return {id:`creator-${String(i+1).padStart(4,'0')}`,name,avatarPath:i===0?'/assets/avatars/la-crrypt.jpg':null,handle:i===0?'la_crrypt':`${name.toLowerCase().replaceAll(' ','_')}_${i+1}`,topics,region:regions[i%6],followers:Math.round(900+r()*98000),posts:i===0?42:8+Math.floor(r()*95),avatarIndex:i%24,evidence:i%11===0&&i!==0?'limited':'established',bio:`Exploring ${TOPICS[a].toLowerCase()} through useful stories and practical guides.`,seed:i+1};
+  return {id:`creator-${String(i+1).padStart(4,'0')}`,name,avatarPath:i===0?'/assets/avatars/la-crrypt.jpg':null,handle:i===0?'la_crrypt':`${name.toLowerCase().replaceAll(' ','_')}_${i+1}`,topics,region:i===0?'United Kingdom':regions[i%6],followers:Math.round(900+r()*98000),posts:i===0?42:8+Math.floor(r()*95),avatarIndex:i%24,evidence:i%11===0&&i!==0?'limited':'established',bio:`Exploring ${TOPICS[a].toLowerCase()} through useful stories and practical guides.`,seed:i+1};
 });
 const seeds=[
  ['phantom','Phantom','Make the first wallet feel easy','Wallets','Help new users set up a wallet and take their first useful action.',6000,'#bcb3ff','First wallet action','https://phantom.com'],
