@@ -11,7 +11,7 @@ export function specificationFromForm(data,state){
  const required=k=>String(data.get(k)||'').trim();
  if(!data.get('reviewed')||!required('brief')||!required('objective')||!required('adminEvidence'))throw Error('Complete the brief, objective, evidence and human review.');
  const nullable=k=>{const raw=required(k);if(!raw)return null;const n=Number(raw);if(!Number.isFinite(n)||n<0)throw Error('Invalid '+k);return n;};
- const amount=nullable('amount');if(amount==null||amount<=0||Math.round(amount*100)!==amount*100)throw Error('Reward must be positive with at most two decimal places.');
+ const amount=nullable('amount');if(amount==null||amount<=0||Math.abs(Math.round(amount*100)-amount*100)>1e-8)throw Error('Reward must be positive with at most two decimal places.');
  const window=nullable('attributionWindowDays');if(window!==null&&!Number.isInteger(window))throw Error('Attribution window must be whole days.');
  return {...structuredClone(base),specVersion:(state.historicalSpecs?.length||0)+1,savedAt:new Date().toISOString(),brief:required('brief'),objective:required('objective'),adminEvidence:required('adminEvidence'),historical:{dates:required('dates')||null,regions:required('regions')||null,identityVerification:required('identityVerification')||null},reward:{...base.reward,amount},measurement:{...base.measurement,attributionWindowDays:window,maxPayoutUSD:nullable('maxPayoutUSD')}};
 }
