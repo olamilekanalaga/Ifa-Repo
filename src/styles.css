@@ -69,3 +69,9 @@ dialog{border:1px solid var(--line);border-radius:18px;padding:30px;width:520px;
 .text-brand{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:var(--ink)}
 .snapshot-logo[src$=".jpg"]{padding:0;object-fit:cover}
 .send-brandmark[src$=".jpg"]{width:80px;height:80px;object-fit:cover;border-radius:15px}
+.reward-chart{width:100%;height:auto;display:block;margin:22px 0}
+.financial-keys{display:flex;flex-wrap:wrap;gap:8px 25px}.financial-keys p{font-size:11px}
+.report-projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.report-projects .snapshot-metrics{grid-template-columns:1fr 1fr;margin-top:24px}.report-projects .snapshot-head h2{font-size:20px}.report-projects .panel{min-width:0}
+.participation-chart{margin:24px 0}.participation-chart>div{display:grid;grid-template-columns:170px minmax(0,1fr) 75px;gap:15px;align-items:center;margin:20px 0;font-size:12px}.participation-track{position:relative;height:25px;background:#f1f4e9;border-radius:4px;overflow:hidden}.participation-track i{display:block;height:100%;background:#82944f}.participation-track .range-extension{position:absolute;top:0;background:repeating-linear-gradient(45deg,#bdc9a3,#bdc9a3 4px,#e2e9d5 4px,#e2e9d5 8px)}
+@media(max-width:1000px){.report-projects{grid-template-columns:1fr}}
+@media(max-width:760px){.participation-chart>div{grid-template-columns:105px minmax(0,1fr) 55px;gap:8px;font-size:10px}.reward-chart text{font-size:15px}}
