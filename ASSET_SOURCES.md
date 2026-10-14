@@ -44,3 +44,5 @@ Breshna card icon: viewport crop of the left-hand symbol in the original officia
 User-supplied project logo images: Photo 1 → PRINT3R (print3r.jpg), Photo 2 → SEND (send.jpg), Photo 3 → Breshna (breshna.jpg). Used unchanged on cards and report pages, replacing the earlier logo variants.
 
 Default creator avatar: user-supplied Photo 1, saved unchanged as public/assets/avatars/la-crrypt.jpg. Display name set to the user's requested name; activity and content signals remain sample data.
+
+IFAGRITHM interface gold matched to https://ifagrithm.xyz public stylesheet /_next/static/css/a2ea1d5207e1c683.css : dark-theme --gold #FFC425, --gold-soft #E8BD54. Applies to IFAGRITHM interface and own mark only; project logo artwork is preserved.
