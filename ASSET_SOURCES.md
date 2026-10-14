@@ -38,3 +38,5 @@ Manrope variable font is included at `public/assets/fonts/manrope-variable.ttf`.
 SEND brandmark: official SEND brand asset library https://info.send.it/docs/miscellaneous/brand-links-assets ; downloaded https://info.send.it/img/SendBrandmark.svg . Used to identify the historical report, no endorsement claimed. send.app blocked direct asset retrieval.
 
 Breshna logo: downloaded from the official website asset https://breshna.io/_next/static/media/breshnaNameLogo.e0b2d894.svg . Original colors and proportions preserved. Used to identify this historical report; no endorsement claimed.
+
+Breshna card icon: viewport crop of the left-hand symbol in the original official SVG, with original artwork and colors retained. Full wordmark preserved for report headings.
