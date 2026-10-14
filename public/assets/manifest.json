@@ -1,0 +1,112 @@
+{
+  "retrieved": "2026-10-14",
+  "purpose": "Illustrative interface demo; fictional campaigns, creator identities and outcomes. No brand partnership, sponsorship or endorsement.",
+  "logos": [
+    {
+      "brand": "Phantom",
+      "path": "/assets/logos/phantom.svg",
+      "source_page": "https://phantom.com",
+      "asset_url": "https://sanity-proxy-v2.phantom.app/files/3nm6d03a/production/5e73f0ad2d621b5ed6ca3c66aad2b70686f8a00e.zip",
+      "provenance": "Official press kit linked from phantom.com; extracted Nov 2024/Phantom App Icon/phantom-app-icon-drkprpl.svg",
+      "sha256": "23f013ec1c61d0b1dd08f8e65c1cce8b1f742116ce2cbc58a5d0798daa6e73f0",
+      "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    },
+    {
+      "brand": "Jupiter",
+      "path": "/assets/logos/jupiter.svg",
+      "source_page": "https://jup.ag",
+      "asset_url": "https://jup.ag/favicon.svg",
+      "provenance": "Official website SVG favicon",
+      "sha256": "36198236d8b6cfea00f3aa1341fed4d9a11edd6a20192de3ac12bf51407e2007",
+      "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    },
+    {
+      "brand": "MetaMask",
+      "path": "/assets/logos/metamask.svg",
+      "source_page": "https://metamask.io/assets",
+      "asset_url": "https://assets.ctfassets.net/clixtyxoaeas/1d7h0Cnm1RaQ0TspxaTS0H/57418d60d3a13fbee748be1ca560235a/MetaMask-Logo-Pack__4_.zip",
+      "provenance": "Official MetaMask logo pack; extracted MetaMask-Logo-Pack/MetaMask/MetaMask-icon-fox.svg",
+      "sha256": "163dd1be1558ee648c266f4a533b6e10d40b737f838bbe40739d9637017cd35f",
+      "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    },
+    {
+      "brand": "Uniswap",
+      "path": "/assets/logos/uniswap.png",
+      "source_page": "https://github.com/Uniswap/interface",
+      "asset_url": "https://raw.githubusercontent.com/Uniswap/interface/main/apps/web/public/favicon.png",
+      "provenance": "Official Uniswap interface repository favicon",
+      "sha256": "e1501668d96ded5bfc98fc0f573b2feb6cadf57b932e47c960f65aea6fdc4827",
+      "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    },
+    {
+      "brand": "Aave",
+      "path": "/assets/logos/aave.png",
+      "source_page": "https://aave.com/brand",
+      "asset_url": "https://aave.com/favicon.png",
+      "provenance": "Official website PNG favicon",
+      "sha256": "90de03c5c3b31e92aefa1478eb5929a6e0afc8138560ab3d037596da6d65fa4e",
+      "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    },
+    {
+      "brand": "OpenSea",
+      "path": "/assets/logos/opensea.png",
+      "source_page": "https://opensea.io",
+      "asset_url": "https://opensea.io/favicon.ico",
+      "provenance": "Official website ICO converted losslessly to RGBA PNG, original resolution 48px",
+      "sha256": "9c1d576182de59d82533af2a2b5453568a43bf27c4ced398eea8cea9801e7a96",
+      "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    },
+    {
+      "brand": "Magic Eden",
+      "path": "/assets/logos/magic-eden.png",
+      "source_page": "https://magiceden.io",
+      "asset_url": "https://magiceden.io/img/favicon/android-chrome-192x192.png",
+      "provenance": "Official website app icon referenced in HTML head",
+      "sha256": "72fca87c90604d555c5f2e70acc8127ac98beb86715f7ab285a5b5b2bf1e100c",
+      "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    },
+    {
+      "brand": "Axie Infinity",
+      "path": "/assets/logos/axie-infinity.png",
+      "source_page": "https://axieinfinity.com",
+      "asset_url": "https://axieinfinity.com/favicon.ico",
+      "provenance": "Official website ICO converted losslessly to RGBA PNG, original resolution 48px",
+      "sha256": "050f32409c63b9f50f7ecb79648d4c8846998b5911377253ba7922bfd290cf84",
+      "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    },
+    {
+      "brand": "Audius",
+      "path": "/assets/logos/audius.png",
+      "source_page": "https://audius.co",
+      "asset_url": "https://audius.co/favicons/apple-touch-icon.png",
+      "provenance": "Official website app icon referenced in HTML head",
+      "sha256": "0f3e31bafd8851dc1e2d52aa0b79544b91a12e4ad4ef42c6e30efe3baa3b2d3e",
+      "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    },
+    {
+      "brand": "Zora",
+      "path": "/assets/logos/zora.png",
+      "source_page": "https://zora.co",
+      "asset_url": "https://zora.co/favicon.ico",
+      "provenance": "Official website ICO converted losslessly to RGBA PNG, original resolution 48px",
+      "sha256": "1b4dbf3ddcd54fef7272cc88f5c988e1a87bec759c440584d2477286c1879bc1",
+      "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    }
+  ],
+  "avatars": {
+    "pattern": "/assets/avatars/noun-{01..24}.svg",
+    "count": 24,
+    "license": "CC0-1.0 artwork",
+    "source": "https://raw.githubusercontent.com/nounsDAO/nouns-monorepo/master/packages/nouns-assets/src/image-data.json",
+    "brand_source": "https://nouns.wtf/brand",
+    "collection_reference": "https://opensea.io/collection/nouns",
+    "provenance": "Locally assembled deterministic combinations of official Nouns CC0 body/accessory/head/glasses artwork. These are illustrative Nouns compositions, not images claimed to represent specific minted token IDs or owners. Trait choices are listed in avatars/manifest.json."
+  },
+  "font": {
+    "family": "Manrope",
+    "path": "/assets/fonts/manrope-variable.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/Manrope%5Bwght%5D.ttf",
+    "license": "SIL Open Font License 1.1",
+    "license_file": "/assets/fonts/OFL-Manrope.txt"
+  }
+}

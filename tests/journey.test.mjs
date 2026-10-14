@@ -1,0 +1,33 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {JSDOM} from 'jsdom';
+
+test('complete creator and founder journey in a DOM environment',async t=>{
+ const html=await readFile(new URL('../index.html',import.meta.url),'utf8');
+ const dom=new JSDOM(html,{url:'http://localhost:4173/',pretendToBeVisual:true});
+ const w=dom.window;
+ for(const key of ['window','document','location','localStorage','sessionStorage','HTMLFormElement','FormData','Blob','HTMLElement'])Object.defineProperty(globalThis,key,{value:key==='window'?w:w[key],configurable:true,writable:true});
+ Object.defineProperty(globalThis,'navigator',{value:w.navigator,configurable:true});
+ w.scrollTo=()=>{};w.HTMLElement.prototype.scrollIntoView=()=>{};
+ w.HTMLDialogElement.prototype.showModal=function(){this.setAttribute('open','');};
+ w.HTMLDialogElement.prototype.close=function(){this.removeAttribute('open');};
+ globalThis.fetch=async()=>({ok:true,json:async()=>JSON.parse(await readFile(new URL('../public/assets/manifest.json',import.meta.url),'utf8'))});
+ await import('../src/app.js');
+ const q=s=>w.document.querySelector(s),all=s=>[...w.document.querySelectorAll(s)],click=s=>{assert.ok(q(s),`missing ${s}`);q(s).click();},submit=s=>q(s).dispatchEvent(new w.Event('submit',{bubbles:true,cancelable:true}));
+ const go=async path=>{w.location.hash=path;await new Promise(r=>setTimeout(r,20));};
+ const get=()=>JSON.parse(w.localStorage.getItem('ifagrithm-demo-v1'));
+ await t.test('marketplace displays ten cards with real local logos',()=>{assert.equal(all('.campaign-card').length,10);assert.match(q('.brand-logo img').src,/logos\/phantom.svg/);assert.match(q('.avatar').src,/avatars\/noun-01.svg/);assert.match(q('h1').textContent,/Your influence/);});
+ await t.test('search and fit filters change the campaign inventory',()=>{q('#campaign-search').value='Phantom';q('#campaign-search').dispatchEvent(new w.Event('input',{bubbles:true}));assert.equal(all('.campaign-card').length,1);q('#campaign-search').value='';q('#campaign-search').dispatchEvent(new w.Event('input',{bubbles:true}));q('#fit-filter').value='strong';q('#fit-filter').dispatchEvent(new w.Event('change',{bubbles:true}));assert.equal(all('.campaign-card').length,2);q('#fit-filter').value='All';q('#fit-filter').dispatchEvent(new w.Event('change',{bubbles:true}));});
+ await t.test('X sign-in is honest and demo session is available',()=>{click('[data-action="signin"]');click('[data-action="x-login"]');assert.match(q('#modal').textContent,/needs setup/);click('[data-action="demo-login"]');assert.equal(get().session,true);});
+ await t.test('strong fit joins by accepting the brief',async()=>{await go('/campaign/phantom');click('[data-action="join"]');q('input[name="accepted"]').checked=true;submit('#join-form');assert.equal(get().memberships['phantom:creator-0001'],'joined');assert.ok(q('[data-action="copy-link"]'));});
+ await t.test('referral journey verifies four customer events and blocks repeated clicks',async()=>{click('[data-action="open-referral"]');await new Promise(r=>setTimeout(r,20));assert.equal(q('[data-type="activation"]').disabled,true);click('[data-type="signup"]');assert.equal(q('[data-type="signup"]').disabled,true);click('[data-type="activation"]');click('[data-type="volume"]');click('[data-type="retention"]');assert.equal(get().events.length,4);await go('/campaign/phantom');assert.notEqual(q('.big-money').textContent,'$0.00');});
+ await t.test('leaderboard and activity show verified results',()=>{click('[data-action="campaign-tab"][data-value="leaderboard"]');assert.ok(q('table tbody tr'));assert.match(q('.my-rank').textContent,/8 Odu/);click('[data-action="campaign-tab"][data-value="my activity"]');assert.equal(all('table tbody tr').length,4);});
+ await t.test('weak fit applies, founder reviews and grants access',async()=>{await go('/campaign/jupiter');click('[data-action="apply"]');for(const name of ['understanding','evidence','plan'])q(`[name="${name}"]`).value='A specific and relevant demo explanation that can be reviewed.';submit('#application-form');assert.equal(get().applications.length,1);assert.match(q('.campaign-bar').textContent,/under review/);await go('/studio');click('[data-action="approve"]');assert.equal(get().memberships['jupiter:creator-0001'],'joined');});
+ await t.test('locked campaign cannot be joined',async()=>{await go('/campaign/opensea');assert.ok(q('.campaign-bar button').disabled);assert.equal(q('[data-action="join"]'),null);});
+ await t.test('founder rules recompute comparison and can finalize',async()=>{await go('/studio');q('[name="breadthCap"]').value='10';submit('#rules-form');assert.equal(get().rules.phantom.breadthCap,10);assert.match(q('.comparison').textContent,/119 pts/);click('[data-action="finalize"]');click('[data-action="confirm-finalize"]');assert.ok(get().finalized.phantom);assert.equal(q('[data-action="advance"]').disabled,true);});
+ await t.test('creator network paginates and switching changes profile',async()=>{await go('/creators');assert.equal(all('.creator-card').length,24);click('[data-action="directory-page"][data-value="2"]');assert.match(q('.pagination').textContent,/Page 2 of 42/);await go('/profile/creator-0002');click('[data-action="use-creator"]');await new Promise(r=>setTimeout(r,20));assert.equal(get().currentCreator,'creator-0002');});
+ await t.test('all navigation pages render without broken local image paths',async()=>{for(const page of ['discover','profile','rewards','studio','creators']){await go('/'+page);assert.ok(q('h1'));for(const image of all('img')){const path=new URL(image.src).pathname;assert.ok(path.startsWith('/assets/'));await readFile(new URL('../public'+path,import.meta.url));}}});
+ await t.test('reset returns demo to seed state',()=>{click('[data-action="reset"]');click('[data-action="confirm-reset"]');assert.equal(get().events.length,0);assert.equal(get().applications.length,0);assert.equal(get().currentCreator,'creator-0001');});
+ w.close();
+});

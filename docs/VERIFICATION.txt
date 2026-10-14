@@ -1,0 +1,13 @@
+Verification performed 14 October 2026
+
+PASS: 28 engine, asset and DOM interaction tests.
+PASS: JavaScript syntax checks.
+PASS: production static build.
+PASS: ten downloaded brand logos match their recorded SHA-256 hashes.
+PASS: local avatar, logo and font files exist; displayed asset URLs resolve to bundled files.
+PASS: unique creator count = 1,000; campaign count = 10.
+PASS: campaign pool allocation conserved to the cent.
+PASS: creator joining, weak-fit application and founder approval, referral journey, reward updates, rule sandbox, finalization and reset in jsdom.
+
+Not performed here: rendered browser layout QA; deployed Vercel URL checks; live OAuth or client integration. Follow docs/ACCEPTANCE.md after deployment.
+All activity, matching signals and money are simulated.

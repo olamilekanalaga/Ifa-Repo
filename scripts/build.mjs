@@ -1,0 +1,13 @@
+import { cp, mkdir, rm, readFile, writeFile, readdir } from 'node:fs/promises';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const out = resolve(root, 'dist');
+await rm(out, { recursive: true, force: true });
+await mkdir(out, { recursive: true });
+await cp(resolve(root, 'public'), out, { recursive: true });
+await cp(resolve(root, 'src'), resolve(out, 'src'), { recursive: true });
+await cp(resolve(root, 'index.html'), resolve(out, 'index.html'));
+await writeFile(resolve(out, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+const assets = await readdir(resolve(out, 'assets'), { recursive: true });
+console.log(`Built dist/: ${assets.length} local asset entries; no API keys or build-time network required.`);

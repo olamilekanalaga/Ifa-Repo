@@ -1,0 +1,33 @@
+I have attached IFAGRITHM_Demo.zip. Make this working demo live so I can test it.
+
+Target GitHub repository: https://github.com/olamilekanalaga/Ifa-Repo
+Deployment target: Vercel.
+
+This is an implementation and deployment task. Continue through testing, GitHub push and a working Vercel deployment. Do not stop at giving me instructions or replacing the existing implementation with a plan. Do not silently replace existing repository work.
+
+1. Inspect the repository and its AGENTS.md files, branches and current contents. It was empty when the ZIP was prepared; check again. Extract the ZIP and place the CONTENTS of ifa-demo/ at repository root. Preserve unrelated/newer work and resolve any overlaps deliberately. Use a normal branch/PR workflow if repository rules require it. No force pushes.
+
+2. Read README.md, docs/MODEL.md, docs/ACCEPTANCE.md, docs/LIVE_INTEGRATIONS.md and ASSET_SOURCES.md. Preserve the core model and the clear demo labels. This is a vanilla HTML/CSS/ES-module app with a dependency-free static build. No rewrite to another framework is needed to launch it.
+
+3. Use Node 24 LTS. Run npm ci, then npm run check. The project includes 1,000 synthetic profiles, ten illustrative campaigns, matching eligibility, applications, review, referral simulation, Odu and exact reward-pool calculations. The 28 tests passed at packaging; investigate and repair any failures in the current environment.
+
+4. Run it and perform a REAL browser pass at desktop and mobile widths, following docs/ACCEPTANCE.md. The prior environment verified the DOM interactions but could not perform a rendered browser QA pass. Inspect layout overflow, all local logo/avatar/font assets, console errors, forms, dialogs, filtering, leaderboard pagination, creator switching, local persistence, event validation and finalization. Fix observed issues. Verify the copied referral link in the same browser. Do not claim cross-device attribution; it is browser-local in this demo.
+
+5. Preserve these product rules:
+   - All campaigns can be viewed. Strong fit accepts the brief; weak/limited evidence applies through a form; mismatch cannot participate.
+   - Outcome-based pool allocation uses verified sign-ups, qualifying activations, volume and returning customers, with configurable demo weights and a sign-up cap.
+   - At the defaults, 10 sign-ups equal 1 sign-up plus activation. At $1,000 volume and one activation each, 100 sign-ups earn 129 points while one sign-up earns 110.
+   - Odu caps at 256 per campaign, but reward allocation uses uncapped contribution points. Odu is not a token or fixed dollar rate.
+   - Pending/rejected/duplicate/self-referral events do not earn rewards. Pool allocations conserve every cent. Estimated shares may fall as others contribute.
+   - Social posts, views, tags, likes and reposts are not payment conditions or scoring inputs.
+   - The founder sandbox is public only because it controls local demo data. Real customer data, auth or money require a separate server implementation.
+
+6. Deploy the DEMO first, without waiting for X credentials, an AI API or a database. Real X sign-in is not configured: preserve the honest setup explanation and working demo access. Do not create a fake X connection or claim a login is verified. If I separately provide an approved auth configuration later, implement it with a maintained auth library, server-side secrets, PKCE/state checks and proper sessions, following the live integration document.
+
+7. Commit and push the completed source to the target repository. Exclude node_modules, .env secrets and .vercel credentials. The provided .gitignore excludes generated dist from Git; Vercel rebuilds it.
+
+8. Link/import this GitHub repository to the appropriate Vercel account/project. Use framework Other, build command npm run build, output directory dist, Node 24.x and repository root as the root directory. vercel.json already sets the static build configuration. No environment variables are required. Respect any existing deployment/project linkage. If account access is the only blocker, tell me the exact login/connection step required after completing the code and checks.
+
+9. Verify the resulting URL: load the marketplace and all assets, start a demo session, accept Phantom, complete the simulated referral journey, inspect the reward change, apply for Jupiter and approve it in the founder sandbox. Check a refreshed campaign hash URL and a mobile viewport.
+
+Return the live Vercel URL, the pushed commit/branch, a concise test summary and any remaining limitations. Keep this as a clearly labelled fictional demo; do not enable real campaigns or payments.
