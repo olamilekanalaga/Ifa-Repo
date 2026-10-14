@@ -42,3 +42,5 @@ Breshna logo: downloaded from the official website asset https://breshna.io/_nex
 Breshna card icon: viewport crop of the left-hand symbol in the original official SVG, with original artwork and colors retained. Full wordmark preserved for report headings.
 
 User-supplied project logo images: Photo 1 → PRINT3R (print3r.jpg), Photo 2 → SEND (send.jpg), Photo 3 → Breshna (breshna.jpg). Used unchanged on cards and report pages, replacing the earlier logo variants.
+
+Default creator avatar: user-supplied Photo 1, saved unchanged as public/assets/avatars/la-crrypt.jpg. Display name set to the user's requested name; activity and content signals remain sample data.
