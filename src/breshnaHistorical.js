@@ -70,7 +70,7 @@ export const breshnaHistorical = {
       "verification": "public_company_description"
     }
   ],
-  "report": {"budgetUSD": 100000, "gameCreatingUsers": 100000, "participatingCreators": null, "source": "campaign_operator_report"},
+  "report": {"durationMonths": 4, "budgetUSD": 100000, "gameCreatingUsers": 100000, "participatingCreators": null, "source": "campaign_operator_report"},
   "metrics": {
     "verifiedReferrals": null,
     "registeredUsers": null,
