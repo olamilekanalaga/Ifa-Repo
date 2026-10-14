@@ -40,3 +40,5 @@ SEND brandmark: official SEND brand asset library https://info.send.it/docs/misc
 Breshna logo: downloaded from the official website asset https://breshna.io/_next/static/media/breshnaNameLogo.e0b2d894.svg . Original colors and proportions preserved. Used to identify this historical report; no endorsement claimed.
 
 Breshna card icon: viewport crop of the left-hand symbol in the original official SVG, with original artwork and colors retained. Full wordmark preserved for report headings.
+
+User-supplied project logo images: Photo 1 → PRINT3R (print3r.jpg), Photo 2 → SEND (send.jpg), Photo 3 → Breshna (breshna.jpg). Used unchanged on cards and report pages, replacing the earlier logo variants.
