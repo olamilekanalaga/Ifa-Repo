@@ -23,6 +23,6 @@ const seeds=[
  ['audius','Audius','Help listeners discover a new favourite','Music','Bring new listeners to a full listening session and a return visit.',2500,'#cab2fd','First listening session','https://audius.co'],
  ['zora','Zora','Bring curious people into creation','Social','Help new users explore, create and return to the community.',3000,'#f6b99c','First creation','https://zora.co'],
 ];
-export const campaigns=seeds.map((s,i)=>({id:s[0],brand:s[1],title:s[2],topic:s[3],description:s[4],pool:s[5],color:s[6],activationLabel:s[7],website:s[8],duration:28,day:8+i%6,oduTarget:800,featured:i<3,rules:{signup:1,activation:9,volume:10,retention:5,breadthCap:20,volumeUnit:100},eligibleActions:['signup','activation','volume','retention']}));
+export const campaigns=seeds.map((s,i)=>({id:s[0],campaignModel:'points_pool',brand:s[1],title:s[2],topic:s[3],description:s[4],pool:s[5],color:s[6],activationLabel:s[7],website:s[8],duration:28,day:8+i%6,oduTarget:800,featured:i<3,rules:{signup:1,activation:9,volume:10,retention:5,breadthCap:20,volumeUnit:100},eligibleActions:['signup','activation','volume','retention']}));
 export const creatorById=Object.fromEntries(creators.map(c=>[c.id,c]));
 export const campaignById=Object.fromEntries(campaigns.map(c=>[c.id,c]));

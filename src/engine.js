@@ -24,7 +24,7 @@ export function seedParticipants(campaign){
   });
 }
 const baseCache=new Map();
-export function baseParticipants(campaign){if(!baseCache.has(campaign.id))baseCache.set(campaign.id,seedParticipants(campaign));return baseCache.get(campaign.id);}
+export function baseParticipants(campaign){if(campaign.campaignModel!=='points_pool')throw new Error('Points pool required');if(!baseCache.has(campaign.id))baseCache.set(campaign.id,seedParticipants(campaign));return baseCache.get(campaign.id);}
 export function campaignRules(campaign,state){return state.rules[campaign.id]||campaign.rules;}
 export function outcomeTotals(campaign,creatorId,state){
   const out={...(baseParticipants(campaign).find(p=>p.creatorId===creatorId)?.outcomes||emptyOutcomes())};

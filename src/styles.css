@@ -38,3 +38,13 @@ dialog{border:1px solid var(--line);border-radius:18px;padding:30px;width:520px;
 .campaign-card .reward-row strong{font-size:20px}
 .campaign-card .avatar-stack small{font-size:8px}
 }
+.history-labels,.history-nav{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.historical-card .card-cover{display:flex;flex-direction:column;gap:12px;justify-content:center}
+.historical-card .card-cover strong{font-size:26px;overflow-wrap:anywhere}
+.historical-card .card-cover small{font-size:10px}
+.historical-card .card-bottom{flex-wrap:wrap;gap:12px;font-size:11px}
+.historical-funnel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:20px 0}
+.historical-funnel>div{background:#f2f4eb;border-radius:10px;padding:18px;min-width:0}
+.historical-funnel h3{font-size:14px;margin-bottom:16px}
+#historical-spec-form{display:grid;gap:20px}
+@media(max-width:760px){.historical-funnel{grid-template-columns:1fr}.historical-card .card-cover strong{font-size:15px}.historical-card .card-cover small{font-size:8px}.historical-card .fit{white-space:normal}.historical-card .reward-row strong{font-size:17px}}
