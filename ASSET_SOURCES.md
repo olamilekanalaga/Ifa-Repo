@@ -46,3 +46,7 @@ User-supplied project logo images: Photo 1 â†’ PRINT3R (print3r.jpg), Photo 2 â†
 Default creator avatar: user-supplied Photo 1, saved unchanged as public/assets/avatars/la-crrypt.jpg. Display name set to the user's requested name; activity and content signals remain sample data.
 
 IFAGRITHM interface gold matched to https://ifagrithm.xyz public stylesheet /_next/static/css/a2ea1d5207e1c683.css : dark-theme --gold #FFC425, --gold-soft #E8BD54. Applies to IFAGRITHM interface and own mark only; project logo artwork is preserved.
+
+## Portfolio project additions
+
+22 project logos copied unchanged from [Portfolio](https://github.com/olamilekanalaga/Portfolio/tree/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos). Exact paths and SHA-256 hashes are recorded in `public/assets/manifest.json`. Original 10 campaigns and 3 historical reports are preserved. New briefs, topic matching, budgets, participants and outcomes are synthetic examples, not claims of actual engagements or product capabilities.

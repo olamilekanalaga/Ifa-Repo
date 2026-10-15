@@ -91,6 +91,204 @@
       "provenance": "Official website ICO converted losslessly to RGBA PNG, original resolution 48px",
       "sha256": "1b4dbf3ddcd54fef7272cc88f5c988e1a87bec759c440584d2477286c1879bc1",
       "rights": "Brand owner trademarks; included only to identify illustrative demo brands. No endorsement implied."
+    },
+    {
+      "brand": "Anoma",
+      "path": "/assets/logos/anoma.jpg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/anoma.jpg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/anoma.jpg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "1e300f016c0c4b39f099ef195ed524ec412bb93105176290bb940d358bdcc7de",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "SOON",
+      "path": "/assets/logos/soon.png",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/soon.png",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/soon.png",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "4000e40b8e162dfb4fb50fdfd21fb2847673739fc55617872ccaddb651bb026b",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "idOS",
+      "path": "/assets/logos/idos.jpg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/idos.jpg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/idos.jpg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "a5ea57dd6bc4f8cc3714eea9b43413df8dc49fd678ab42aa6a2c1a5d82fe2746",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "EdenFi",
+      "path": "/assets/logos/edenfi.jpg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/edenfi.jpg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/edenfi.jpg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "686c01e30fd489aa1a3689259d8799b45edfc0a6282082eb56fae15ca2a6a0f7",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Wallchain",
+      "path": "/assets/logos/wallchain.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/wallchain.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/wallchain.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "99f0e5578f08fb9f238efffc8375be329b42d3ae73127a36f0f5b6148aac480e",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "The Banters",
+      "path": "/assets/logos/the-banters.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/the-banters.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/the-banters.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "cf45e01c8a1dc0d1684f4ab8afd04def1bf9710830c6f3b23e2aaafd240cb192",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "TAC",
+      "path": "/assets/logos/tac.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/tac.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/tac.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "b4710b126f58151b535153f0ab6304beb0ad4beb1795702c6d2dcbd457e1fdb8",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Superteam UK",
+      "path": "/assets/logos/superteam-uk.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/superteam-uk.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/superteam-uk.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "0f5c050d561adeb0b4855e3fd1985d893c821b4c51f791118fed6f83bd7f365d",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Sonic SVM",
+      "path": "/assets/logos/sonic-svm.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/sonic-svm.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/sonic-svm.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "b33e4062b214820128ed38e0aa7e57ecce0f3258144a4537bb9e26aed127d29b",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Notcoin",
+      "path": "/assets/logos/notcoin.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/notcoin.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/notcoin.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "476ad74a946c7806da667ae4f54952f5f3b6a757eec2479fe75a184f35a5c761",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Nansen",
+      "path": "/assets/logos/nansen-ai.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/nansen-ai.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/nansen-ai.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "b3b1e60c2f62dca10e451e5e510e8918aed48ab983bddfee2437eeb5361798d5",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Mode",
+      "path": "/assets/logos/mode-network.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/mode-network.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/mode-network.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "b067133e1c1cdeac0a1ddff934ff28cf6f849e84b9cdf16f02ec7f29b8c14bbb",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "MBG",
+      "path": "/assets/logos/mbg.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/mbg.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/mbg.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "0cf29b76b61a7ab6b76dd765b736bb5c9762aa7fa6ad1e65b0af0fd05c46ac39",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Loudio",
+      "path": "/assets/logos/loudio.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/loudio.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/loudio.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "2f314838b4c2a8170c049a08b397dab50a48e98eee251e766b054b5c9c926fea",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Klout",
+      "path": "/assets/logos/klout.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/klout.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/klout.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "f93f6c877c82cbf361a9f37d19c86fe20a8326af7df67696ebd6253584a0fc92",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Kaito",
+      "path": "/assets/logos/kaito-ai.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/kaito-ai.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/kaito-ai.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "e559b4eb396c16a4f0eec2f33139b75d615cb48aaadd4359e4a0fc0b3a9fb2f9",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Humanity Protocol",
+      "path": "/assets/logos/humanity-protocol.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/humanity-protocol.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/humanity-protocol.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "2a609ad18d3477d3435db4162320792c64891a6152adf707bc0661af3a1b64a8",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Huma Finance",
+      "path": "/assets/logos/huma-finance.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/huma-finance.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/huma-finance.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "d6452f80cbc175eb2516ee7f07e518ee397efb7c39dc1a7b3bb5045ef0f81e8c",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Hey Elsa",
+      "path": "/assets/logos/hey-elsa.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/hey-elsa.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/hey-elsa.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "731265a1169b02bb7ff4fca5e29b48015039d4d95b6797f66b518e45e5a0e088",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "DOGS",
+      "path": "/assets/logos/dogs.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/dogs.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/dogs.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "ad54dcca7e412e0a93cd56bda9787d98b7d6085d0908ce278e59491e35c7189a",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "deBridge",
+      "path": "/assets/logos/debridge.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/debridge.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/debridge.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "ead68b02f9f5d7cfa641bb6b9f81b47c9f8a2250b859f4135506085393e2eefe",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
+    },
+    {
+      "brand": "Caldera",
+      "path": "/assets/logos/caldera.jpeg",
+      "source_page": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/caldera.jpeg",
+      "asset_url": "https://github.com/olamilekanalaga/Portfolio/blob/d848f884681a9233380885f0832f2a4c6b0dcb52/dist/assets/logos/caldera.jpeg",
+      "provenance": "Copied from user-specified Portfolio repository at d848f884681a9233380885f0832f2a4c6b0dcb52",
+      "sha256": "0e20ac9ddf9e0a9f929ed9770ddcf42b000eb905c01941af0230fd94c42f2ba4",
+      "rights": "Project trademark; illustrative demo only, no partnership or real campaign implied."
     }
   ],
   "avatars": {

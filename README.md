@@ -1,6 +1,6 @@
 # IFAGRITHM — Campaign marketplace demo
 
-A working, deployable prototype of Ola’s outcome-based campaign model. Includes **1,000 unique synthetic creator profiles**, **10 illustrative campaigns**, real locally saved brand logos, CC0 Nouns avatar artwork, a campaign marketplace, matching, review applications, referral journeys, Odu, estimated reward allocations, and a founder sandbox.
+A working, deployable prototype of Ola’s outcome-based campaign model. Includes **1,000 unique synthetic creator profiles**, **32 illustrative campaigns**, real locally saved brand logos, CC0 Nouns avatar artwork, a campaign marketplace, matching, review applications, referral journeys, Odu, estimated reward allocations, and a founder sandbox.
 
 **All activity and rewards are simulated. No wallet connections, customer deposits, X posting, real payouts or live brand partnerships are involved.** Data stays in the current browser. The named brands are illustrative examples, not clients.
 
@@ -50,7 +50,7 @@ The separate `CODEX_LAUNCH_PROMPT.txt` tells Codex to inspect the repository, in
 
 - Responsive marketplace with search, topic filters and fit labels.
 - 1,000 unique deterministic creator profiles, searchable and paginated.
-- Ten real-brand illustrative campaign briefs with local logo assets.
+- 32 real-brand illustrative campaign briefs with local logo assets.
 - Strong fit: direct acceptance. Weak/limited evidence: application and demo review. Mismatch: participation locked, brief readable.
 - Demo sessions and creator switching, with browser-local persistence.
 - Campaign leaderboard, rule explanation, outcome ledger and personal rewards.
@@ -113,3 +113,5 @@ The 24 avatar images reuse official **CC0 Nouns traits** as deterministic illust
 
 ## Creator and founder workspaces
 The role-based extension starts with a workspace chooser and includes clearly labelled creator, pending-founder, approved-founder and administrator demos. Production registration and private HTTP APIs are deliberately unavailable until real authentication and storage are connected. See docs/WORKSPACES.md for routes, API contracts, data structures, security limitations and the unapplied database schema. The legacy founder sandbox is now restricted to approved founder/admin demo identities.
+
+Portfolio imports add 22 synthetic Recent campaign concepts to the original 10. All imported logo provenance and hashes are in `public/assets/manifest.json`; no imported project is classified as a historical engagement.

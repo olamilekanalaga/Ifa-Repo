@@ -1,3 +1,4 @@
+import {portfolioProjects} from './portfolioProjects.js';
 export const TOPICS = ['Wallets','Payments','Trading','Lending','NFTs','Gaming','Music','Social'];
 export function rng(seed) { let s=seed>>>0; return () => { s=(Math.imul(1664525,s)+1013904223)>>>0; return s/4294967296; }; }
 const first=['Amara','Tunde','Maya','Kai','Zara','Felix','Nia','Arjun','Lena','Kofi','Yuki','Noor','Diego','Ada','Sofia','Leo','Imani','Chen','Priya','Kwame','Sade','Jules','Sam','Emeka','Ria','Ayo','Iris','Dara','Remi','Jin','Kemi','Tao'];
@@ -23,6 +24,7 @@ const seeds=[
  ['audius','Audius','Help listeners discover a new favourite','Music','Bring new listeners to a full listening session and a return visit.',2500,'#cab2fd','First listening session','https://audius.co'],
  ['zora','Zora','Bring curious people into creation','Social','Help new users explore, create and return to the community.',3000,'#f6b99c','First creation','https://zora.co'],
 ];
-export const campaigns=seeds.map((s,i)=>({id:s[0],campaignModel:'points_pool',brand:s[1],title:s[2],topic:s[3],description:s[4],pool:s[5],color:s[6],activationLabel:s[7],website:s[8],duration:28,day:8+i%6,oduTarget:800,featured:i<3,rules:{signup:1,activation:9,volume:10,retention:5,breadthCap:20,volumeUnit:100},eligibleActions:['signup','activation','volume','retention']}));
+seeds.push(...portfolioProjects.map(p=>[p.id,p.brand,'Explore the product and return',p.topic,'Sample brief: help new users discover the product, complete a useful first action and return. Fictional budget and outcomes.',p.pool,'#e8bd54','First qualifying product action',p.website]));
+export const campaigns=seeds.map((s,i)=>({id:s[0],campaignModel:'points_pool',brand:s[1],logoPath:portfolioProjects.find(p=>p.id===s[0])?.logoPath,simulation:true,title:s[2],topic:s[3],description:s[4],pool:s[5],color:s[6],activationLabel:s[7],website:s[8],duration:28,day:8+i%6,oduTarget:800,featured:i<3,rules:{signup:1,activation:9,volume:10,retention:5,breadthCap:20,volumeUnit:100},eligibleActions:['signup','activation','volume','retention']}));
 export const creatorById=Object.fromEntries(creators.map(c=>[c.id,c]));
 export const campaignById=Object.fromEntries(campaigns.map(c=>[c.id,c]));

@@ -5,8 +5,8 @@ import {fit,score,odu,ranking,addEvent,outcomeTotals,finalize,advanceDay,members
 import {initialState,loadState,persistState,STORAGE_KEY} from '../src/store.js';
 const c=campaignById.phantom,id=creators[0].id;
 const joined=()=>{const s=initialState();s.memberships[c.id+':'+id]='joined';return s;};
-test('dataset contains exactly 1,000 unique synthetic profiles and 10 campaigns',()=>{
- assert.equal(creators.length,1000);assert.equal(new Set(creators.map(c=>c.id)).size,1000);assert.equal(new Set(creators.map(c=>c.handle)).size,1000);assert.equal(campaigns.length,10);assert.ok(campaigns.every(c=>c.pool>0));
+test('dataset contains exactly 1,000 unique synthetic profiles and 32 campaigns',()=>{
+ assert.equal(creators.length,1000);assert.equal(new Set(creators.map(c=>c.id)).size,1000);assert.equal(new Set(creators.map(c=>c.handle)).size,1000);assert.equal(campaigns.length,32);assert.ok(campaigns.every(c=>c.pool>0));
 });
 test('default creator can join wallets, apply for trading and cannot join NFTs',()=>{
  assert.equal(fit(creators[0],c),'strong');assert.equal(fit(creators[0],campaignById.jupiter),'weak');assert.equal(fit(creators[0],campaignById.opensea),'locked');

@@ -4,9 +4,9 @@ import {readFile,stat} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {campaigns} from '../src/data.js';
 const root=new URL('../public/',import.meta.url);
-test('all 10 downloaded brand assets are present and match provenance hashes',async()=>{
+test('all demo brand assets are present and match provenance hashes',async()=>{
  const manifest=JSON.parse(await readFile(new URL('assets/manifest.json',root),'utf8'));
- assert.equal(manifest.logos.length,10);
+ assert.equal(manifest.logos.length,campaigns.length);
  for(const logo of manifest.logos){assert.ok(campaigns.some(c=>c.brand===logo.brand));const bytes=await readFile(new URL(logo.path.slice(1),root));assert.ok(bytes.length>50);assert.equal(createHash('sha256').update(bytes).digest('hex'),logo.sha256);}
 });
 test('all local Nouns avatars and font assets are present',async()=>{
