@@ -2,6 +2,8 @@
 
 ## Current founder reporting demo
 
+[Campaign Impact MVP](docs/CAMPAIGN_IMPACT_MVP.md) adds social post snapshots, before/during/after on-chain activity, optional referral attribution, source coverage and CSV/JSON workflows inside the existing founder navigation. Open `/#/founder-demo/impact` for the browser-local demonstration. No live provider connections or production data endpoints are enabled.
+
 [Founder reporting implementation](docs/FOUNDER_REPORTING_DEMO.md) describes the connected campaign report, post-level snapshots, product claims, CSV preview, evidence review, version history and separately approved case study. Individual creator portfolios are deferred; creator records support internal campaign analysis.
 
 ## Previous architecture specification

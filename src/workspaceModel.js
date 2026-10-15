@@ -42,7 +42,7 @@ export function routeAllowed(user,path){
  if(!user)return false;
  if(path.startsWith('/admin'))return isAdmin(user);
  if(path.startsWith('/founder'))return isApprovedFounder(user);
- if(path==='/studio')return isApprovedFounder(user)||isAdmin(user);
+ if(path==='/studio'||path==='/campaign-impact')return isApprovedFounder(user)||isAdmin(user);
  return user.roles.includes('creator')||isApprovedFounder(user)||isAdmin(user);
 }
 
