@@ -1,5 +1,9 @@
 # IFAGRITHM — Campaign marketplace demo
 
+## Next architecture specification
+
+[Connected Campaign Evidence and Creator Portfolio](docs/CAMPAIGN_EVIDENCE_ENGINE_SPEC.md) defines the proposed shared campaign record, three report views, claim-level verification, independent creator identity, imports, publication permissions, migrations and acceptance tests. It is a specification; these evidence and production identity workflows are not yet live.
+
 A working, deployable prototype of Ola’s outcome-based campaign model. Includes **1,000 unique synthetic creator profiles**, **32 illustrative campaigns**, real locally saved brand logos, CC0 Nouns avatar artwork, a campaign marketplace, matching, review applications, referral journeys, Odu, estimated reward allocations, and a founder sandbox.
 
 **All activity and rewards are simulated. No wallet connections, customer deposits, X posting, real payouts or live brand partnerships are involved.** Data stays in the current browser. The named brands are illustrative examples, not clients.
