@@ -6,7 +6,7 @@ const dollars=x=>x==null?'—':'$'+new Intl.NumberFormat('en-US',{maximumFractio
 const trend=n=>n==null?'Unavailable':`${n>=0?'+':''}${n.toFixed(1)}%`;
 function card(k,v,note){return `<article class="impact-number"><small>${esc(k)}</small><strong>${esc(v)}</strong><span>${esc(note)}</span></article>`;}
 const sectionTitle=(title,sub)=>`<div class="impact-section-head"><h2>${esc(title)}</h2><p>${esc(sub)}</p></div>`;
-function svgLine(rows,campaign){
+export function svgLine(rows,campaign){
  const points=rows.filter(r=>r.active_wallets!==null);
  if(!points.length)return '<p class="muted">Import dated Dune observations to display the on-chain activity timeline.</p>';
  const max=Math.max(1,...points.map(x=>x.active_wallets))*1.14;
@@ -18,7 +18,7 @@ function svgLine(rows,campaign){
  const boundaries=[['Campaign starts',campaign.start],['Campaign ends',campaign.end]].map(([label,date])=>{const xx=x({date});return `<line x1="${xx}" x2="${xx}" y1="25" y2="190" stroke="currentColor" stroke-dasharray="3 4" opacity=".4"/><text x="${xx}" y="16" fill="currentColor" font-size="9" text-anchor="middle">${label}</text>`;}).join('');
  return `<svg viewBox="0 0 770 240" class="impact-svg" role="img" aria-label="Daily active wallets over the baseline, campaign and follow-up periods; gaps mean missing data"><g>${grid}${ticks}${boundaries}</g>${paths.map(s=>`<path d="${s}" fill="none" stroke="#efbf42" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>`).join('')}${points.map(p=>`<circle cx="${x(p)}" cy="${y(p)}" r="2.3" fill="#efbf42"><title>${esc(p.date)}: ${plain(p.active_wallets)} active wallets</title></circle>`).join('')}</svg>`;
 }
-function bars(items,{currency=false,subtitle=''}={}){
+export function bars(items,{currency=false,subtitle=''}={}){
  if(!items.some(i=>i.value!==null))return '<p class="muted">No observations for this comparison.</p>';
  const max=Math.max(1,...items.map(p=>p.value??0))*1.18,w=680/items.length;
  const rects=items.map((p,i)=>{const h=p.value==null?0:156*p.value/max,xx=60+i*w+w*.18,ww=w*.64,yy=185-h;

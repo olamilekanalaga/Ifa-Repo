@@ -1,5 +1,9 @@
 # IFAGRITHM — Founder Campaign Intelligence
 
+## Connected campaign MVP
+
+[Connected campaign workflow](docs/CONNECTED_CAMPAIGN_MVP.md) links the founder brief, creator applications and shortlist, participation, execution, social snapshots, product/referral evidence, reviewed contributions and saved founder reports under one campaign ID. Open `/#/founder-demo`. The existing design and creator side are preserved; live integrations and shared production persistence are not enabled.
+
 ## Current founder reporting demo
 
 [Campaign Impact MVP](docs/CAMPAIGN_IMPACT_MVP.md) adds social post snapshots, before/during/after on-chain activity, optional referral attribution, source coverage and CSV/JSON workflows inside the existing founder navigation. Open `/#/founder-demo/impact` for the browser-local demonstration. No live provider connections or production data endpoints are enabled.
