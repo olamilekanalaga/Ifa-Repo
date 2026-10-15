@@ -19,3 +19,5 @@
 .social-signin{max-width:360px;margin:30px auto;text-align:center}.social-signin h2{font-size:20px;margin-bottom:20px}.social-signin-buttons{display:grid;gap:12px}.social-provider{width:100%;display:flex;align-items:center;justify-content:center;gap:12px;min-height:50px;background:#171a1e;color:#eee;border:1px solid #373b43}.social-provider:disabled{opacity:.65;cursor:not-allowed}.provider-mark{font-size:21px;font-weight:700;width:24px}.google-mark{font-family:Arial,sans-serif}.social-signin>p{margin-top:14px}
 
 .social-provider img.provider-mark{width:20px;height:20px;object-fit:contain}
+
+button.access-choice{background:none;border:0;padding:0;font:inherit;cursor:pointer}.access-choices{gap:30px}@media(max-width:480px){.access-choices{gap:14px}.access-choice{width:90px}.role-portrait{width:68px;height:68px}.role-portrait img{width:56px;height:56px}}
