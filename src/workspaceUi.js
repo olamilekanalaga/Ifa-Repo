@@ -22,9 +22,9 @@ export function workspaceNav(api,route){const user=api.getSession().user;let ite
  if(isAdmin(user))items=[['admin/applications','Founder applications'],['admin/campaigns','Campaign reviews']];
  else if(isApprovedFounder(user))items=[['founder/overview','Overview'],['founder/campaigns','Campaigns'],['founder/reports','Reports'],['founder/settings','Settings'],['profile','Profile']];
  else if(user?.roles.includes('founder'))items=[['founder/pending','Application status'],['discover','Creator campaigns'],['profile','Profile']];
- else items=[['discover','Discover'],['my-campaigns','My Campaigns'],['rewards','Rewards'],['profile','Profile']];
+ else items=[['discover','Discover'],['my-campaigns','My Campaigns'],['profile','Profile']];
  const current=route.name+(route.id?'/'+route.id:'');
- return items.map(([path,label],i)=>`<a href="#/${path}" class="nav-item ${current===path?'active':''}"><span class="nav-number">${String(i+1).padStart(2,'0')}</span><span>${label}</span></a>`).join('');
+ return items.map(([path,label],i)=>`<a href="#/${path}" class="nav-item ${current===path?'active':''}"><span>${label}</span></a>`).join('');
 }
 export function permissionPage(message='This page is not available to your account.'){return `${heading('Access restricted',esc(message))}<section class="panel"><p>Founder tools require manual approval. Administrator tools require an authorised IFAGRITHM administrator.</p><a class="btn" href="#/discover">Back to creator campaigns</a></section>`;}
 function pendingPage(api){const app=api.request('GET','/founder/application');return `${heading(app.status==='pending'?'Your application is under review':'Founder access: '+esc(app.status),'IFAGRITHM reviews company information before enabling founder tools.')}<section class="panel">${badge(app.status)}<h2>${esc(app.company.name)}</h2><p>${esc(app.company.description)}</p><p>${esc(app.company.website)}</p><p>Submitted ${date(app.submittedAt)}</p><p>${app.status==='pending'?'Campaign management and private reports stay unavailable until approval.':app.status==='suspended'||app.status==='revoked'?'Founder permissions have been removed. Contact IFAGRITHM for review.':'This application was not approved.'}</p><button class="btn" data-ws-action="refresh">Refresh status</button></section>`;}
