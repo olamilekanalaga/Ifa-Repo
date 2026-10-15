@@ -1,8 +1,9 @@
+import {outcomeFunnel} from './campaignIntelligence.js';
 import {ranking,validateRules} from './engine.js';
 import {creatorById} from './data.js';
 
 export const WORKSPACE_KEY='ifagrithm-workspace-demo-v1';
-export const PRODUCT_EVENTS=['signup','activation','volume','retention'];
+export const PRODUCT_EVENTS=['visit','signup','activation','deposit','volume','retention'];
 export class ApiError extends Error{constructor(status,message){super(message);this.status=status;}}
 const deny=(message='Access denied')=>{throw new ApiError(403,message);};
 const clone=value=>structuredClone(value);
@@ -46,6 +47,11 @@ export function routeAllowed(user,path){
 }
 
 function allocations(campaign,events){
+ if(campaign.campaignModel==='fixed_per_qualified_referral'){
+  const verified=events.filter(e=>e.campaignId===campaign.id&&e.status==='verified');
+  return [...new Set(events.filter(e=>e.campaignId===campaign.id).map(e=>e.creatorId))].map(creatorId=>{const own=verified.filter(e=>e.creatorId===creatorId);const registered=new Set(own.filter(e=>e.type==='signup').map(e=>e.customerId));const qualified=new Set(own.filter(e=>campaign.qualifyingEvents.includes(e.type)&&registered.has(e.customerId)).map(e=>e.customerId));return {creatorId,name:creatorById[creatorId]?.name||'Sample creator',points:0,reward:qualified.size*Math.round(campaign.fixedRewardUSD*100)/100,qualifiedAccounts:qualified.size,outcomes:Object.fromEntries(PRODUCT_EVENTS.map(t=>[t,own.filter(e=>e.type===t).reduce((n,e)=>n+e.amount,0)]))};});
+ }
+
  const allocationId=`workspace-allocation:${campaign.id}`;
  const ids=[...new Set(events.filter(e=>e.campaignId===campaign.id).map(e=>e.creatorId))];
  // An empty synthetic-topic seed keeps workspace allocations exclusively event-backed.
@@ -71,7 +77,7 @@ export function buildReport(store,user,filters={}){
  const qualifying=verified.filter(e=>campaigns.find(c=>c.id===e.campaignId)?.qualifyingEvents.includes(e.type));
  const activated=distinct(qualifying),converted=[...activated].filter(id=>signups.has(id)).length;
  const rewards=campaigns.flatMap(c=>{const final=store.finalisations.find(f=>f.campaignId===c.id);return (final?.rows||allocations(c,lifetimeEvents.filter(e=>e.campaignId===c.id))).map(row=>({...row,campaignId:c.id,campaignTitle:c.title,allocationStatus:final?'finalised':'estimated'}));}).filter(r=>!filters.creatorId||r.creatorId===filters.creatorId);
- return {demo:true,scope:'organisation',campaigns:campaigns.map(c=>({id:c.id,title:c.title,status:c.status})),filters,metrics:{attributedUsers:distinct(events).size,verifiedQualifyingActions:qualifying.length,verifiedRegistrations:signups.size,conversionRate:signups.size?converted/signups.size:null,returningUsers:distinct(verified.filter(e=>e.type==='retention')).size,pendingEvents:events.filter(e=>e.status==='pending').length,creatorPoints:rewards.reduce((n,r)=>n+r.points,0),estimatedRewardsUSD:rewards.filter(r=>r.allocationStatus==='estimated').reduce((n,r)=>n+r.reward,0),finalisedRewardsUSD:rewards.filter(r=>r.allocationStatus==='finalised').reduce((n,r)=>n+r.reward,0),expenditureUSD:null},rows:rewards,events:events.map(e=>({...e,creatorName:creatorById[e.creatorId]?.name||'Sample creator'})),allocationBasis:'Lifetime verified campaign events; event filters do not redistribute reward pools.',conversionBasis:'Verified referred accounts with both registration and a qualifying action inside the selected filters. Accounts are counted per campaign.'};
+ return {funnel:outcomeFunnel(events),demo:true,scope:'organisation',campaigns:campaigns.map(c=>({id:c.id,title:c.title,status:c.status})),filters,metrics:{budgetShortfallUSD:campaigns.reduce((sum,c)=>sum+Math.max(0,(store.finalisations.find(f=>f.campaignId===c.id)?.rows||allocations(c,lifetimeEvents.filter(e=>e.campaignId===c.id))).reduce((n,r)=>n+Math.round(r.reward*100),0)-Math.round(c.pool*100))/100,0),attributedUsers:distinct(events).size,verifiedQualifyingActions:qualifying.length,verifiedRegistrations:signups.size,conversionRate:signups.size?converted/signups.size:null,returningUsers:distinct(verified.filter(e=>e.type==='retention')).size,pendingEvents:events.filter(e=>e.status==='pending').length,creatorPoints:rewards.reduce((n,r)=>n+r.points,0),estimatedRewardsUSD:rewards.filter(r=>r.allocationStatus==='estimated').reduce((n,r)=>n+r.reward,0),finalisedRewardsUSD:rewards.filter(r=>r.allocationStatus==='finalised').reduce((n,r)=>n+r.reward,0),expenditureUSD:null},rows:rewards,events:events.map(e=>({...e,creatorName:creatorById[e.creatorId]?.name||'Sample creator'})),allocationBasis:'Lifetime verified events: points models share a pool; fixed rates are not redistributed. Event filters do not change lifetime allocations.',conversionBasis:'Verified referred accounts with both registration and a qualifying action inside the selected filters. Accounts are counted per campaign.'};
 }
 
 export function createDemoWorkspaceApi(storage){
@@ -130,7 +136,7 @@ export function createDemoWorkspaceApi(storage){
   }
   if(parts[0]==='creator'){
    if(!user.roles.includes('creator'))deny('Creator access required.');
-   if(method==='GET'&&parts[1]==='campaigns')return clone({campaigns:store.campaigns.filter(c=>c.published).map(c=>({id:c.id,title:c.title,objective:c.objective,topic:c.topic,pool:c.pool,status:c.status,activationLabel:c.activationLabel,eligibility:c.eligibility,startDate:c.startDate,endDate:c.endDate,qualifyingEvents:c.qualifyingEvents,rules:c.rules}))});
+   if(method==='GET'&&parts[1]==='campaigns')return clone({campaigns:store.campaigns.filter(c=>c.published).map(c=>({id:c.id,title:c.title,objective:c.objective,topic:c.topic,pool:c.pool,status:c.status,activationLabel:c.activationLabel,eligibility:c.eligibility,startDate:c.startDate,endDate:c.endDate,qualifyingEvents:c.qualifyingEvents,rules:c.rules,campaignModel:c.campaignModel,fixedRewardUSD:c.fixedRewardUSD}))});
    if(method==='GET'&&parts[1]==='outcomes'){
     if(filters.creatorId&&filters.creatorId!==user.creatorId)deny('Other creators’ private attribution records are unavailable.');
     return clone({events:store.events.filter(e=>e.creatorId===user.creatorId),rewards:store.campaigns.flatMap(c=>{const final=store.finalisations.find(f=>f.campaignId===c.id);return (final?.rows||allocations(c,store.events.filter(e=>e.campaignId===c.id))).filter(r=>r.creatorId===user.creatorId).map(r=>({...r,campaignId:c.id,status:final?'finalised':'estimated'}));})});
@@ -152,9 +158,10 @@ export function createDemoWorkspaceApi(storage){
     if(existing&&!['draft','rejected'].includes(existing.status))throw new ApiError(409,'Reviewed campaign rules are locked.');
     const pool=Number(body.pool);if(!Number.isFinite(pool)||pool<=0||Math.abs(pool*100-Math.round(pool*100))>1e-8)throw new ApiError(422,'Budget must be positive with at most two decimals.');
     if(!validDate(body.startDate)||!validDate(body.endDate)||body.startDate>body.endDate)throw new ApiError(422,'Provide valid start and end dates.');
-    if(!Array.isArray(body.qualifyingEvents)||!body.qualifyingEvents.length||body.qualifyingEvents.some(e=>!PRODUCT_EVENTS.includes(e)))throw new ApiError(422,'Choose qualifying product events; social engagement is excluded.');
+    if(!Array.isArray(body.qualifyingEvents)||!body.qualifyingEvents.length||body.qualifyingEvents.some(e=>!PRODUCT_EVENTS.includes(e)||e==='visit'))throw new ApiError(422,'Choose qualifying product events; social engagement is excluded.');
+    const campaignModel=body.campaignModel||existing?.campaignModel||'points_pool';if(!['points_pool','fixed_per_qualified_referral'].includes(campaignModel))throw new ApiError(422,'Unsupported reward model.');const fixedRewardUSD=Number(body.fixedRewardUSD||0);if(campaignModel==='fixed_per_qualified_referral'&&(!Number.isFinite(fixedRewardUSD)||fixedRewardUSD<=0||fixedRewardUSD>pool||Math.abs(fixedRewardUSD*100-Math.round(fixedRewardUSD*100))>1e-8||body.qualifyingEvents.length!==1||['volume','retention'].includes(body.qualifyingEvents[0])))throw new ApiError(422,'Fixed referral rewards require one milestone, a positive cent-precision rate and sufficient budget.');
     let rules;try{rules=validateRules({...body.rules});}catch(error){throw new ApiError(422,error.message);}
-    const data={title:text(body.title,'Campaign title',160),objective:text(body.objective,'Product objective'),topic:text(body.topic,'Product category',80),activationLabel:text(body.activationLabel,'Qualifying action label',160),eligibility:text(body.eligibility,'Creator eligibility rules'),qualifyingEvents:[...new Set(body.qualifyingEvents)],startDate:body.startDate,endDate:body.endDate,pool,rules};
+    const data={campaignModel,fixedRewardUSD:campaignModel==='fixed_per_qualified_referral'?fixedRewardUSD:null,title:text(body.title,'Campaign title',160),objective:text(body.objective,'Product objective'),topic:text(body.topic,'Product category',80),activationLabel:text(body.activationLabel,'Qualifying action label',160),eligibility:text(body.eligibility,'Creator eligibility rules'),qualifyingEvents:[...new Set(body.qualifyingEvents)],startDate:body.startDate,endDate:body.endDate,pool,rules};
     const campaign=existing||{id:id('campaign'),orgId:user.orgId,createdAt:now(),campaignModel:'points_pool',published:false,status:'draft',version:0};Object.assign(campaign,data,{status:'draft',version:campaign.version+1});if(!existing)store.campaigns.push(campaign);audit(user,campaign.id,'save_campaign','Draft specification saved.');persist();return clone(campaign);
    }
    if(parts[1]==='campaigns'&&parts[2]){
@@ -166,19 +173,20 @@ export function createDemoWorkspaceApi(storage){
     }
     if(method==='POST'&&parts[3]==='finalise'){
      if(campaign.status!=='closed')throw new ApiError(409,'Close the campaign before finalising.');if(store.finalisations.some(f=>f.campaignId===campaign.id))throw new ApiError(409,'Already finalised.');
-     const final={id:id('allocation'),campaignId:campaign.id,orgId:user.orgId,rules:clone(campaign.rules),rows:allocations(campaign,store.events.filter(e=>e.campaignId===campaign.id)),at:now(),isPayoutAuthorization:false};store.finalisations.push(final);campaign.status='finalised';audit(user,campaign.id,'finalise_campaign','Allocation snapshot locked; no funds paid.');persist();return clone(final);
+     const allocationRows=allocations(campaign,store.events.filter(e=>e.campaignId===campaign.id));if(allocationRows.reduce((n,r)=>n+Math.round(r.reward*100),0)>Math.round(campaign.pool*100))throw new ApiError(422,'Fixed reward liability exceeds the campaign budget. Resolve the shortfall before finalising.');
+     const final={campaignModel:campaign.campaignModel,fixedRewardUSD:campaign.fixedRewardUSD,id:id('allocation'),campaignId:campaign.id,orgId:user.orgId,rules:clone(campaign.rules),rows:allocationRows,at:now(),isPayoutAuthorization:false};store.finalisations.push(final);campaign.status='finalised';audit(user,campaign.id,'finalise_campaign','Allocation snapshot locked; no funds paid.');persist();return clone(final);
     }
     if(method==='POST'&&parts[3]==='events'){
      if(campaign.status!=='live')throw new ApiError(409,'Only live demo campaigns accept simulated product events.');
-     const type=body.type,status=body.status||'pending',amount=Number(body.amount||1),customerId=text(body.customerId,'Referred account ID',150),creatorId=body.creatorId;
+     const type=body.type,status=body.status||'pending',amount=Number(body.amount??1),customerId=text(body.customerId,'Referred account ID',150),creatorId=body.creatorId;
      if(!PRODUCT_EVENTS.includes(type)||!['verified','pending','rejected'].includes(status)||!creatorById[creatorId])throw new ApiError(422,'Invalid product event, creator or verification status.');
      if(!Number.isFinite(amount)||amount<=0||(type!=='volume'&&amount!==1))throw new ApiError(422,'Invalid event amount.');if(customerId===creatorId)throw new ApiError(422,'Self-referrals do not qualify.');
      const related=store.events.filter(e=>e.campaignId===campaign.id&&e.customerId===customerId&&e.status!=='rejected');
      if(related.some(e=>e.creatorId!==creatorId))throw new ApiError(409,'Conflicting creator attribution.');
      const eventId=text(body.id,'Unique event ID',150);if(store.events.some(e=>e.orgId===user.orgId&&e.id===eventId))throw new ApiError(409,'Duplicate event ID.');
      if(type!=='volume'&&related.some(e=>e.type===type))throw new ApiError(409,'Duplicate customer milestone.');
-     if(type!=='signup'&&!related.some(e=>e.type==='signup'&&e.status==='verified'))throw new ApiError(422,'Verified registration is required first.');
-     if(['volume','retention'].includes(type)&&!related.some(e=>e.type==='activation'&&e.status==='verified'))throw new ApiError(422,'Verified activation is required first.');
+     if(!['visit','signup'].includes(type)&&!related.some(e=>e.type==='signup'&&e.status==='verified'))throw new ApiError(422,'Verified registration is required first.');
+     if(['deposit','volume','retention'].includes(type)&&!related.some(e=>e.type==='activation'&&e.status==='verified'))throw new ApiError(422,'Verified activation is required first.');
      const occurredAt=new Date(body.occurredAt||now());if(!Number.isFinite(occurredAt.getTime())||occurredAt.toISOString().slice(0,10)<campaign.startDate||occurredAt.toISOString().slice(0,10)>campaign.endDate)throw new ApiError(422,'Event date must be inside the campaign window.');
      const event={id:eventId,campaignId:campaign.id,orgId:user.orgId,creatorId,customerId,type,status,amount,occurredAt:occurredAt.toISOString(),source:'simulated_product_event'};store.events.push(event);audit(user,campaign.id,'record_demo_event','Simulated event only.');persist();return clone(event);
     }

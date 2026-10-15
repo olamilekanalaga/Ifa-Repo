@@ -74,3 +74,7 @@ No environment variables are required for this demo. For a future Better Auth/Po
 `db/schema.sql` is a reference for Supabase/Postgres, not an executed migration. It requires `auth.users`, `auth.uid()`, `authenticated` and `service_role`. It separates roles from approvals, enables organisation-scoped RLS, restricts creator reads to their own attribution/events/ledger, keeps internal notes admin-only, and denies all authenticated direct writes. If a different auth/Postgres provider is chosen, adapt identity functions before running it. Backend writes must validate authenticated actors and use database transactions; service credentials never go to the browser. Bootstrap the first administrator through a trusted server/operator process, never self-service registration.
 
 Before production: implement and test authenticated signup/sign-in/sign-out, verified identity, email delivery, application review, role revocation, SQL RLS isolation between two real organisations, immutable audit history, append-only event/reversal handling, signed product webhook verification, replay limits, invite acceptance, deployment caching and production event/settlement reconciliation. X historical-content classification is a separate, unconnected pipeline. Do not deploy to production until these controls are verified.
+
+## Campaign intelligence extension
+
+See [CAMPAIGN_INTELLIGENCE.md](CAMPAIGN_INTELLIGENCE.md) for the points/fixed reward designer, uncapped registrations, first-deposit events, simulator, cohort funnel and remaining production dependencies.

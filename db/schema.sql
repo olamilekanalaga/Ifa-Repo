@@ -71,7 +71,7 @@ create table ifagrithm.attributions (
 create table ifagrithm.product_events (
  id uuid primary key default gen_random_uuid(), campaign_id uuid not null, organisation_id uuid not null,
  customer_id text not null, creator_id uuid not null, source_event_id text not null,
- product_event text not null check(product_event in ('signup','activation','volume','retention')),
+ product_event text not null check(product_event in ('visit','signup','activation','deposit','volume','retention')),
  amount numeric(20,6) not null check(amount>0),
  verification_status text not null default 'pending' check(verification_status in ('pending','verified','rejected')),
  occurred_at timestamptz not null, received_at timestamptz not null default now(),

@@ -3,17 +3,18 @@ export function fit(creator,campaign){
   const score=creator.topics[campaign.topic]||0;
   return score>=65&&creator.evidence!=='limited'?'strong':score>=25?'weak':'locked';
 }
-export const emptyOutcomes=()=>({signup:0,activation:0,volume:0,retention:0});
+export const emptyOutcomes=()=>({signup:0,activation:0,volume:0,retention:0,deposit:0});
 export function validateRules(r){
-  for(const k of ['signup','activation','volume','retention','breadthCap','volumeUnit']) if(!Number.isFinite(r[k])||r[k]<0) throw new Error('Rule values must be finite and non-negative.');
-  if(r.volumeUnit<=0||r.breadthCap<=0) throw new Error('Volume unit and sign-up cap must be positive.');
-  if(r.signup+r.activation+r.volume+r.retention===0) throw new Error('At least one outcome must earn points.');
+  for(const k of ['signup','activation','volume','retention','volumeUnit']) if(!Number.isFinite(r[k])||r[k]<0) throw new Error('Rule values must be finite and non-negative.');
+  if((r.breadthCap!==null&&(!Number.isFinite(r.breadthCap)||r.breadthCap<=0||!Number.isInteger(r.breadthCap)))||r.volumeUnit<=0) throw new Error('Volume unit and sign-up cap must be positive.');
+  if(r.deposit!==undefined&&(!Number.isFinite(r.deposit)||r.deposit<0))throw new Error('Deposit points must be finite and non-negative.');
+  if(r.signup+r.activation+r.volume+r.retention+(r.deposit||0)===0) throw new Error('At least one outcome must earn points.');
   return r;
 }
 export function score(out,r){
   validateRules(r);
   const n=k=>Math.max(0,Number.isFinite(out[k])?out[k]:0);
-  return Math.round((Math.min(n('signup'),r.breadthCap)*r.signup+n('activation')*r.activation+n('volume')/r.volumeUnit*r.volume+n('retention')*r.retention)*100)/100;
+  return Math.round(((r.breadthCap===null?n('signup'):Math.min(n('signup'),r.breadthCap))*r.signup+n('activation')*r.activation+n('volume')/r.volumeUnit*r.volume+n('retention')*r.retention+n('deposit')*(r.deposit||0))*100)/100;
 }
 export function odu(points,target=800){ return Math.min(256,Math.floor(Math.max(0,points)/target*256)); }
 export function seedParticipants(campaign){
