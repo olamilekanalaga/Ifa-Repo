@@ -1,0 +1,9 @@
+# Creator shortlist
+
+The Creators page offers the existing sector comparison matrix and a focused shortlist. Selecting a sector opens the shortlist, while View switches back to the matrix. Search, minimum percentage, 30/90-day demo windows, sorting, pagination and expandable evidence are available. Column sorting exposes aria-sort; mobile shortlist cards keep creator identity, sector relevance and demo confidence visible and move extra metrics into View evidence.
+
+Content share means the illustrative fraction of a creator's own topic mix. Change is percentage points against a synthetic previous period, not audience growth, mindshare, conversion or reward share. All time windows, sample sizes and confidence labels are fictional UI examples; no X posts, real evidence dates or calibrated confidence are claimed. Depth, consistency and recency evidence explicitly remain unconnected. Demo snapshot anchor: 15 October 2026.
+
+Only approved founders load product outcomes through their organisation-scoped demo API. Sector and date filters apply; activations require a verified sign-up for the same campaign/account. Conversion denominator is verified registrations. Other creators' private data is not available to creator identities. Unknown outcomes remain null, display No verified data, and sort last in either direction. A measured zero is preserved where verified cohort data exists. Outcomes come from simulated ledger events and are labelled demo, never real-world verified conversions.
+
+View campaign results opens founder reports filtered to the creator and window, across all sectors (stated next to the action). Synthetic X identities remain unconnected. Existing campaign leaderboard/rule/reward engines are unchanged by this UI extension. Production authentication, signed events and X data remain dependencies; no live services or new environment variables were added.
