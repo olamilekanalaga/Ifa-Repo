@@ -110,3 +110,6 @@ Estimated allocations use the largest-remainder method, with deterministic tie-b
 ## Assets
 
 The 24 avatar images reuse official **CC0 Nouns traits** as deterministic illustrative compositions across the 1,000 synthetic profiles. They are not actual owner identities or claimed minted token IDs. Logos are downloaded from official sites, press kits or official repositories. Brand rights remain with their owners. See `ASSET_SOURCES.md` and `public/assets/manifest.json` for provenance. Manrope is bundled under its SIL Open Font License.
+
+## Creator and founder workspaces
+The role-based extension starts with a workspace chooser and includes clearly labelled creator, pending-founder, approved-founder and administrator demos. Production registration and private HTTP APIs are deliberately unavailable until real authentication and storage are connected. See docs/WORKSPACES.md for routes, API contracts, data structures, security limitations and the unapplied database schema. The legacy founder sandbox is now restricted to approved founder/admin demo identities.
