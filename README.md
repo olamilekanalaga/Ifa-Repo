@@ -1,6 +1,10 @@
-# IFAGRITHM — Campaign marketplace demo
+# IFAGRITHM — Founder Campaign Intelligence
 
-## Next architecture specification
+## Current founder reporting demo
+
+[Founder reporting implementation](docs/FOUNDER_REPORTING_DEMO.md) describes the connected campaign report, post-level snapshots, product claims, CSV preview, evidence review, version history and separately approved case study. Individual creator portfolios are deferred; creator records support internal campaign analysis.
+
+## Previous architecture specification
 
 [Connected Campaign Evidence and Creator Portfolio](docs/CAMPAIGN_EVIDENCE_ENGINE_SPEC.md) defines the proposed shared campaign record, three report views, claim-level verification, independent creator identity, imports, publication permissions, migrations and acceptance tests. It is a specification; these evidence and production identity workflows are not yet live.
 

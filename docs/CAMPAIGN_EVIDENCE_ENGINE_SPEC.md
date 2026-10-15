@@ -1,5 +1,7 @@
 # Connected Campaign Evidence, Reporting and Creator Portfolio
 
+> Scope update: the individual creator portfolio/career-history product is deferred. The current direction is founder-focused campaign intelligence. See [FOUNDER_REPORTING_DEMO.md](FOUNDER_REPORTING_DEMO.md) for the visible implementation and updated scope. This older specification is retained as design history, not the current delivery commitment.
+
 **Status:** implementation specification, 15 October 2026. Proposed workflows below are not yet implemented. The current deployment remains a browser-local demonstration with private production APIs disabled.
 
 ## 1. Product principle and scope
