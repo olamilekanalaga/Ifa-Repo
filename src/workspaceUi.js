@@ -20,9 +20,9 @@ export function entryPage(api,route){const step=route.id||'';return `<main class
 function applicationForm(api){const user=api.getSession().user;return `<section class="panel"><h2>Apply for founder access</h2><p>Manual IFAGRITHM approval is required. This is a local demo application, not a production account request.</p><form data-ws-form="founder-application" class="workspace-form">${input('name','Your name',user?.name||'','text','required')}${input('companyName','Company name','','text','required maxlength="150"')}${input('website','Product website','','url','required')}${input('workEmail','Work email',user?.email||'','email','required')}${area('description','Product description')}${input('social','Relevant social account','','text','required maxlength="300"')}<button class="btn primary">Submit application for review · demo</button></form></section>`;}
 export function workspaceNav(api,route){const user=api.getSession().user;let items;
  if(isAdmin(user))items=[['admin/applications','Founder applications'],['admin/campaigns','Campaign reviews']];
- else if(isApprovedFounder(user))items=[['founder/overview','Overview'],['founder/campaigns','Campaigns'],['founder/reports','Reports'],['founder/settings','Settings'],['profile','Profile']];
- else if(user?.roles.includes('founder'))items=[['founder/pending','Application status'],['discover','Creator campaigns'],['profile','Profile']];
- else items=[['discover','Discover'],['my-campaigns','My Campaigns'],['profile','Profile']];
+ else if(isApprovedFounder(user))items=[['founder/overview','Overview'],['founder/campaigns','Campaigns'],['founder/reports','Reports'],['founder/settings','Settings'],['creators','Creators'],['profile','Profile']];
+ else if(user?.roles.includes('founder'))items=[['founder/pending','Application status'],['discover','Creator campaigns'],['creators','Creators'],['profile','Profile']];
+ else items=[['discover','Discover'],['my-campaigns','My Campaigns'],['creators','Creators'],['profile','Profile']];
  const current=route.name+(route.id?'/'+route.id:'');
  return items.map(([path,label],i)=>`<a href="#/${path}" class="nav-item ${current===path?'active':''}"><span>${label}</span></a>`).join('');
 }
