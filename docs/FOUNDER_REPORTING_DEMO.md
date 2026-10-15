@@ -8,7 +8,7 @@ This supersedes the portfolio-product scope in CAMPAIGN_EVIDENCE_ENGINE_SPEC.md.
 
 ## Explore the prototype
 
-Enter Demo, then click Explore founder reporting on the Campaigns page. Founder navigation also has Reports and History. Routes:
+Enter Demo to open the founder report directly, or use `#/founder-demo` for a fresh demo-founder entry link. Founder navigation also has Reports and History. Routes:
 
 - `#/campaign-records/founder`: organisation-private fictional campaign report.
 - `#/campaign-records/evidence`: CSV preview, claim corrections/review, post-level snapshots and version freezing.

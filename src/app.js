@@ -44,6 +44,7 @@ function pageHead(kicker,title,desc,action=''){return `<div class="page-heading"
 function applyWorkspaceResult(result){if(!result)return;if(result.identityChanged){const user=workspaceApi.getSession().user;if(user?.creatorId&&creatorById[user.creatorId])state.currentCreator=user.creatorId;state.session=!!user;save();}if(result.route)location.hash=result.route;render();if(result.message)toast(result.message);}
 function render(){
   const r=route(),person=me(),workspaceUser=workspaceApi.getSession().user;
+  if(r.name==='founder-demo'&&workspaceApi.mode==='demo'){workspaceApi.request('POST','/demo/session',{persona:'founder_approved'});state.currentCreator=workspaceApi.getSession().user.creatorId;state.session=true;save();location.hash='/campaign-records/founder';return;}
   if(!workspaceUser||r.name==='access'){app.innerHTML=entryPage(workspaceApi,r);document.title='Choose your workspace · IFAGRITHM';return;}
 
   if(r.name==='r'){renderReferral(r);return;}
