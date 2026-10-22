@@ -6,7 +6,7 @@ import {createDemoWorkspaceApi} from '../src/workspaceModel.js';
 
 test('complete creator and founder journey in a DOM environment',async t=>{
  const html=await readFile(new URL('../index.html',import.meta.url),'utf8');
- const dom=new JSDOM(html,{url:'http://localhost:4173/',pretendToBeVisual:true});
+ const dom=new JSDOM(html,{url:'http://localhost:4173/?legacy=1',pretendToBeVisual:true});
  const w=dom.window;
  for(const key of ['window','document','location','localStorage','sessionStorage','HTMLFormElement','FormData','Blob','HTMLElement'])Object.defineProperty(globalThis,key,{value:key==='window'?w:w[key],configurable:true,writable:true});
  Object.defineProperty(globalThis,'navigator',{value:w.navigator,configurable:true});

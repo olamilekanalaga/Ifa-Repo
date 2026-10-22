@@ -27,6 +27,34 @@
     {
       "source": "/api/workspace/:path*",
       "destination": "/api/workspace"
+    },
+    {
+      "source": "/overview",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/discover",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/rankings",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/identity",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/opportunities",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/access",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/access/:step",
+      "destination": "/index.html"
     }
   ]
 }

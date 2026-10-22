@@ -1,4 +1,10 @@
-# IFAGRITHM — Founder Campaign Intelligence
+# IFAGRITHM — Participant Identity & Discovery
+
+The current preview adapts the supplied identity prototype into the existing vanilla JavaScript application. Start at `/#/overview` or `/#/access` (redirects to Identity). Discover, scoped Rankings, Identity and conceptual Opportunities use explicitly fictional examples. X authentication, wallet ownership verification and behavioural analysis are not live.
+
+See [Identity frontend migration](docs/IDENTITY_FRONTEND_MIGRATION.md) for routes, validation, preserved infrastructure and integration requirements. The previous campaign tools remain available through `/?legacy=1#/access` and existing campaign deep links. Production deployment requires separate approval.
+
+## Preserved campaign implementation
 
 ## Connected campaign MVP
 

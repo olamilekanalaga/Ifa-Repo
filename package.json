@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "IFAGRITHM outcome-based campaign marketplace: 1,000 synthetic creators and 10 illustrative campaigns.",
+  "description": "IFAGRITHM participant identity and permissioned evidence preview, with preserved campaign tools.",
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/serve.mjs dist",
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check src/app.js && node --check src/engine.js && node --check src/data.js && node --check src/store.js && npm test && npm run build"
+    "check": "node --check src/app.js && node --check src/engine.js && node --check src/data.js && node --check src/store.js && node --check src/identityModel.js && node --check src/identityUi.js && npm test && npm run build"
   },
   "engines": {
     "node": "24.x"

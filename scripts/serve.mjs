@@ -8,6 +8,7 @@ const server = http.createServer(async (req,res) => {
   try {
     let path = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
     if(path.startsWith('/api/')){workspaceApi(req,res);return;}
+    if(['/overview','/discover','/rankings','/identity','/opportunities','/access'].includes(path)||/^\/access\/(creator|founder|signin)$/.test(path))path='/index.html';
     if(path.split('/').some(part=>part.startsWith('.')&&part!=='.'))throw new Error('Private path');
     if(!['/','/index.html'].includes(path)&&!path.startsWith('/src/')&&!path.startsWith('/assets/')&&!path.startsWith('/public/assets/'))throw new Error('Not a public asset');
     if(path === '/') path='/index.html';
