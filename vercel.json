@@ -30,31 +30,31 @@
     },
     {
       "source": "/overview",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/discover",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/rankings",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/identity",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/opportunities",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/access",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/access/:step",
-      "destination": "/index.html"
+      "destination": "/"
     }
   ]
 }
