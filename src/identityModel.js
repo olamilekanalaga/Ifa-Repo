@@ -31,10 +31,12 @@ export function rankIdentityProfiles({economy,dimension,query='',area='All'}){
 }
 export function resolveIdentityRoute(hash,pathname='/',legacy=false){
  if(legacy)return {identity:false};const path=String(hash||'').replace(/^#/,'').replace(/\/+$/,'')||'/';
- const aliases={'/':'overview','/overview':'overview','/discover':'discover','/rankings':'rankings','/identity':'identity','/opportunities':'opportunities'};
- if(path==='/access'||path.startsWith('/access/'))return {identity:true,page:'identity',redirect:'/identity'};
+ const aliases={'/':'home','/overview':'overview','/discover':'discover','/rankings':'rankings','/identity':'identity','/opportunities':'opportunities'};
+ if(path==='/access')return {identity:true,page:'home'};
+ if(path.startsWith('/access/'))return {identity:true,page:'identity',redirect:'/identity'};
  if(!hash&&pathname!=='/'&&pathname!=='/index.html'){
-  if(pathname==='/access'||pathname.startsWith('/access/'))return {identity:true,page:'identity',redirect:'/identity'};
+  if(pathname==='/access')return {identity:true,page:'home'};
+  if(pathname.startsWith('/access/'))return {identity:true,page:'identity',redirect:'/identity'};
   if(aliases[pathname])return {identity:true,page:aliases[pathname],redirect:pathname};
  }
  if(Object.hasOwn(aliases,path))return {identity:true,page:aliases[path]};

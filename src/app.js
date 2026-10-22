@@ -63,6 +63,8 @@ function applyIdentityResult(result={}){
 }
 function render(){
   const identity=identityRoute();
+  document.body.classList.toggle('identity-home',identity.page==='home');
+  if(identity.page==='home'){document.body.classList.remove('identity-app');app.innerHTML=entryPage(workspaceApi,{identityEntry:true});app.removeAttribute('aria-busy');document.title='Choose your workspace · IFAGRITHM';document.querySelector('meta[name="theme-color"]')?.setAttribute('content','#0b0f0f');return;}
   if(identity.identity){
    if(identity.redirect){window.history.replaceState(null,'','/'+location.search+'#'+identity.redirect);}
    document.body.classList.add('identity-app');app.innerHTML=identityExperience.render(identity.page);app.removeAttribute('aria-busy');document.title=(identity.page==='overview'?'IFAGRITHM — Behaviour tells the story':identity.page==='identity'?'My identity':identity.page[0].toUpperCase()+identity.page.slice(1))+' · IFAGRITHM';document.querySelector('meta[name="theme-color"]')?.setAttribute('content','#090b11');if(!identityStarted)checkIdentityAvailability();return;

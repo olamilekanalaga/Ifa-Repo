@@ -6,3 +6,21 @@ html:has(body.identity-app){background:#090b11;color-scheme:dark}body.identity-a
 .identity-app strong,.identity-app .score{font-family:Manrope,Arial,sans-serif}.identity-app .profile-stats{display:grid;grid-template-columns:1fr 1fr;flex-direction:row;text-align:left}.identity-app .profile-stats>div{min-width:0}.identity-app .footer{width:100%;margin:0;gap:15px}.identity-app .footer span{flex:initial;order:initial;max-width:100%;min-width:0;overflow-wrap:anywhere}.identity-app .identity-mobile-label{color:#bcb1e2}@media(max-width:750px){.identity-app .footer{align-items:flex-start}.identity-app .profile-stats{gap:15px}}
 
 .identity-app .skip{color:#151224;background:#b9a7ff}.identity-app .nav-caption,.identity-app .crumb-slash,.identity-app .hero-caption>span,.identity-app .signal-top small{color:#aeb4c9}
+
+body.identity-home{background:#0b0f0f;color:#f4f4f5;--text:#f4f4f5;--muted:#a4a8ad;--gold:#ffc52b;--panel:#121719;--line:#2b3035}body.identity-home .theme-toggle{display:none}body.identity-home .access-screen{color:#f4f4f5}body.identity-home .muted,body.identity-home .access-signin,body.identity-home .showcase-caption{color:#a4a8ad}
+body.identity-home{min-height:100vh;--ink:#f4f4f5;--paper:#0b0f0f;color-scheme:dark}body.identity-home .canopy-title text{fill:#f4f4f5}body.identity-home .canopy-title .canopy-gold{fill:#ffc425}body.identity-home .role-label{color:#f4f4f5}body.identity-home .role-portrait{background:#29241a;border-color:#ffc425}body.identity-home .showcase-project{background:#121518;border-color:#2b3036}body.identity-home .showcase-project span{color:#d9dde3}
+/* Restored entry adapts to the viewport; avatars retain their square proportions. */
+body.identity-home .access-screen#main{width:100%;max-width:1100px;min-height:100svh;padding:clamp(20px,3vw,36px) clamp(16px,4vw,48px) clamp(24px,4vh,48px)}
+body.identity-home .access-screen>.wordmark{margin-bottom:clamp(20px,4vh,44px)}
+body.identity-home .access-canopy{width:min(100%,600px)}
+body.identity-home .canopy-title{width:100%;height:auto}
+body.identity-home .access-choices{width:min(100%,620px);gap:clamp(12px,5vw,68px);margin:clamp(24px,4vh,40px) auto 24px}
+body.identity-home .access-choice{flex:1;min-width:0;max-width:140px}
+body.identity-home .role-portrait{width:clamp(64px,13vw,108px);height:auto;aspect-ratio:1}
+body.identity-home .role-portrait img{width:84%;height:84%;aspect-ratio:1;object-fit:contain}
+body.identity-home .role-label{font-size:clamp(14px,2vw,20px)}
+body.identity-home .project-showcase{width:100%;min-width:0;margin-top:clamp(28px,6vh,64px)}
+body.identity-home .showcase-window{max-width:100%}
+body.identity-home .showcase-heading{padding:0;flex-wrap:wrap}
+body.identity-home .showcase-caption{padding-inline:8px}
+@media(max-height:700px) and (min-width:761px){body.identity-home .access-canopy{max-width:450px}body.identity-home .access-screen>.wordmark{margin-bottom:8px}body.identity-home .project-showcase{margin-top:24px}}

@@ -12,12 +12,13 @@ The existing workspace session API reports authentication and database configura
 
 | Route | Behaviour |
 | --- | --- |
-| `/` or `/#/overview` | Overview: Influence is visible. Behaviour tells the story.; Trenches, Traditional Web3 and Hybrid |
+| `/` or `/#/access` | Original gold workspace chooser, avatar choices and moving project showcase |
+| `/#/overview` | Overview: Influence is visible. Behaviour tells the story.; Trenches, Traditional Web3 and Hybrid |
 | `/#/discover` | Search and economy/participation filters, fictional profiles and evidence disclosures |
 | `/#/rankings` | One economy and one dimension at a time; arbitrary demonstration indices, no global composite |
 | `/#/identity` | Connection availability, local demonstration inputs, missing evidence and timeline |
 | `/#/opportunities` | Conceptual project needs; no verified paying demand or publishing |
-| `/#/access` and existing access subroutes | Redirect to Identity |
+| `/#/access/creator`, `/#/access/founder`, `/#/access/signin` | Redirect to Identity |
 | `/overview`, `/discover`, `/rankings`, `/identity`, `/opportunities`, `/access` | Same-app aliases, supported by local server and Vercel rewrites |
 | `/?legacy=1#/access` | Preserved original campaign onboarding |
 | Existing founder, campaign and reporting deep links | Preserved original implementation |
@@ -70,3 +71,7 @@ Real onboarding requires approved X OAuth access, server sessions, durable permi
 Real classification requires permitted source retrieval, evidence provenance, dated model versions, uncertainty and review. Verify applicable X terms, privacy/retention/deletion requirements and programme/regional eligibility before enabling real collection or commercial programmes. No claim is made that present provider configuration or programme permissions satisfy those requirements.
 
 Production remains unchanged. Use the dedicated preview deployment to review this migration before any separate production approval.
+
+## Restored entry screen
+
+The original gold canopy, three avatar choices and project showcase are the first screen again. Creator, Founder and Sign in continue to the new identity onboarding with disabled live connections. Demo opens the identity Overview without creating a session. The showcase retains its sample/historical disclaimer and pause control. Desktop and 390px/320px flows were checked.
